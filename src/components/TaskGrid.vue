@@ -1,7 +1,12 @@
 <template>
   <div class="tasks">
     <template v-if="tasks.length">
-      <Task v-for="task in tasks" :key="task.name" :task="task"></Task>
+      <Task 
+        v-for="(task, i) in tasks" 
+        @taskDeleted="removeTask(i)"  
+        @taskStateChange="changeTask(i)"  
+        :key="task.name" :task="task"
+      />
     </template>
     <template v-else>
       <p class="no-task"> Sua vida está em dia :) </p>
@@ -16,6 +21,16 @@
     components: { Task },
     props: {
       tasks: { type: Array, required: true }
+    },
+
+    methods: {
+       removeTask ( task_id ) {
+        this.$emit('taskDeleted', task_id)
+      },
+
+      changeTask( task_id ) {
+        this.$emit('taskStateChange', task_id)
+      }
     }
   }
 </script>
