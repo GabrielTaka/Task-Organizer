@@ -1,5 +1,4 @@
-# todo
-##Take a Look of project 
+## Take a Look of project 
 ![Alt Text](https://media.giphy.com/media/Qurq8mOn9gDnwBU1FT/giphy.gif)
 
 ## Project setup
